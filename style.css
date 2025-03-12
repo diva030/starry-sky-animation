@@ -1,0 +1,113 @@
+/* Style for the entire page */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.starry-sky {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #001a33, #000);
+    overflow: hidden;
+}
+
+/* Twinkling stars */
+@keyframes twinkling {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+.star {
+    position: absolute;
+    background: white;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkling 2s infinite alternate;
+}
+
+/* Shooting star with glowing trail */
+.shooting-star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white, 0 0 16px white;
+    opacity: 0;
+}
+
+@keyframes shootingStar {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(600px, 600px);
+        opacity: 0;
+    }
+}
+
+/* Tasha's name with golden glow and smooth floating animation */
+.tasha-name, .message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffe100; /* Golden color */
+    font-family: 'Great Vibes', 'Georgia', serif; /* Elegant cursive font */
+    text-shadow: 0 0 10px #ead76a, 0 0 20px #FFD700, 0 0 30px #FFA500, 0 0 40px #FFA500;
+    opacity: 0;
+    animation: appear 2s forwards, pulse 2s infinite, float 6s ease-in-out infinite;
+}
+
+/* Tasha's name styling */
+.tasha-name {
+    font-size: 80px;
+    margin-bottom: 15px;
+}
+
+/* Message styling */
+.message {
+    font-size: 36px;
+    margin-top: 8px;
+}
+
+@keyframes appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFA500; }
+    50% { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500, 0 0 60px #FFA500; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(-50%, -50%) translateY(-5px); }
+    50% { transform: translate(-50%, -50%) translateY(5px); }
+}
+
+/* Message animation */
+.message {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    color: white;
+    text-shadow: 0 0 8px white, 0 0 16px white;
+    opacity: 0;
+    animation: messageAppear 3s forwards, float 6s ease-in-out infinite;
+}
+
+@keyframes messageAppear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
